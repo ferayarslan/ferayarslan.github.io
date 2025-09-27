@@ -4,145 +4,133 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Feray Arslan | Portföy</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: #0d0d0d;
-      color: #e0e0e0;
-      line-height: 1.6;
-    }
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      background: #1c1c1c;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 36px;
-      color: #ffcc00;
-    }
-    header p {
-      margin-top: 10px;
-      font-size: 18px;
-    }
-    nav {
-      text-align: center;
-      margin-top: 20px;
-    }
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #e0e0e0;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-    nav a:hover {
-      color: #ffcc00;
-    }
-    section {
-      max-width: 900px;
-      margin: 80px auto;
-      padding: 0 20px;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    h2 {
-      font-size: 28px;
-      color: #ffcc00;
-      margin-bottom: 20px;
-      border-bottom: 2px solid #ffcc00;
-      display: inline-block;
-      padding-bottom: 5px;
-    }
-    .portfolio a {
-      display: block;
-      background: #1c1c1c;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 15px;
-      color: #e0e0e0;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .portfolio a:hover {
-      background: #2a2a2a;
-      color: #ffcc00;
-    }
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: #1c1c1c;
-      font-size: 14px;
-      margin-top: 50px;
-    }
-    footer a {
-      color: #ffcc00;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
-<body>
-  <header>
-    <h1>Feray Arslan</h1>
-    <p>Bilgisayar Programcısı</p>
-    <nav>
-      <a href="#hakkimda">Hakkımda</a>
-      <a href="#ozgecmis">Özgeçmiş</a>
-      <a href="#portfoy">Portföy</a>
-      <a href="#iletisim">İletişim</a>
-    </nav>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+  <!-- HERO -->
+  <header class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-20 relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-6 text-center" data-aos="fade-down">
+      <img src="https://avatars.githubusercontent.com/ferayarslan" alt="Feray Arslan" 
+           class="w-32 h-32 rounded-full border-4 border-white mx-auto shadow-lg mb-4 transform hover:scale-105 transition">
+      <h1 class="text-4xl font-bold">Feray Arslan</h1>
+      <p class="text-lg text-indigo-100 mt-2">Bilgisayar Programcısı • Siber Güvenlik & Yazılım</p>
+      <div class="flex justify-center gap-6 mt-6 text-lg">
+        <a href="https://github.com/ferayarslan" target="_blank" class="hover:text-yellow-300 transition">GitHub</a>
+        <a href="https://www.linkedin.com/in/feray-arslan-0866a42a9/" target="_blank" class="hover:text-yellow-300 transition">LinkedIn</a>
+        <a href="mailto:ferayarslan38@gmail.com" class="hover:text-yellow-300 transition">E-posta</a>
+        <a href="https://ferayarslan.github.io/" target="_blank" class="hover:text-yellow-300 transition">Web</a>
+      </div>
+    </div>
   </header>
 
-  <section id="hakkimda">
-    <h2>Hakkımda</h2>
-    <p>Ben Feray Arslan. Afyon Kocatepe Üniversitesi Bilgisayar Programcılığı bölümünden mezun oldum. Web geliştirme, yazılım, veri tabanı ve siber güvenlik alanlarında çalışmalar yapıyorum. Birçok BTK Akademi, Siber Vatan ve Cisco Networking Academy sertifikasına sahibim.</p>
-    <p>Hedefim yazılım ve siber güvenlik alanında ilerlemek.</p>
+  <!-- HAKKIMDA -->
+  <section class="max-w-4xl mx-auto px-6 py-16" data-aos="fade-up">
+    <h2 class="text-3xl font-semibold mb-6">Hakkımda</h2>
+    <p class="text-lg leading-relaxed">
+      Afyon Kocatepe Üniversitesi Bilgisayar Programcılığı mezunuyum. 
+      PHP, MySQL, C#, Python ve web geliştirme alanında projeler üretiyorum. 
+      Siber güvenlik alanında çeşitli eğitimler aldım ve projelerimi GitHub üzerinde paylaşıyorum.
+    </p>
   </section>
 
-  <section id="ozgecmis">
-    <h2>Özgeçmiş</h2>
-    <p><strong>Eğitim:</strong> Afyon Kocatepe Üniversitesi, Bilgisayar Programcılığı (2023–2025)</p>
-    <p><strong>Staj:</strong> Altıeylül Belediyesi Bilgi İşlem Departmanı (2024)</p>
-    <p><strong>İş Deneyimi:</strong> Afyonkarahisar Gençlik ve Spor İl Müdürlüğü (Memur Asistanı, 2024–2025)</p>
-    <p><strong>Beceriler:</strong> PHP, MySQL, C#, Python, SQL, Dart, Microsoft Office, Photoshop, Kali Linux</p>
+  <!-- EĞİTİM -->
+  <section class="bg-gray-100 py-16" data-aos="fade-right">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl font-semibold mb-6">Eğitim</h2>
+      <ul class="space-y-3 text-lg">
+        <li>🎓 <strong>Afyon Kocatepe Üniversitesi</strong> – Bilgisayar Programcılığı (2023–2025)</li>
+        <li>🏫 <strong>Zühtü Özkardaşlar Anadolu Lisesi</strong> (2018–2022)</li>
+      </ul>
+    </div>
   </section>
 
-  <section id="portfoy" class="portfolio">
-    <h2>Portföy</h2>
-    <a href="https://github.com/ferayarslan/fotobulut" target="_blank">📸 Fotobulut Projesi</a>
-    <a href="https://github.com/ferayarslan" target="_blank">💻 Tüm GitHub Projelerim</a>
+  <!-- DENEYİM -->
+  <section class="max-w-4xl mx-auto px-6 py-16" data-aos="fade-left">
+    <h2 class="text-3xl font-semibold mb-6">Deneyim</h2>
+    <div class="space-y-6">
+      <div class="p-4 border-l-4 border-indigo-600 bg-white shadow rounded hover:shadow-lg transition">
+        <h3 class="font-bold">Altıeylül Belediyesi – Bilgi İşlem Departmanı (Staj)</h3>
+        <p class="text-sm mt-2 text-gray-600">2024</p>
+        <p class="mt-2">Bilgi işlem altyapısı, kullanıcı destek sistemleri ve temel yazılım/donanım deneyimi.</p>
+      </div>
+      <div class="p-4 border-l-4 border-purple-600 bg-white shadow rounded hover:shadow-lg transition">
+        <h3 class="font-bold">Afyonkarahisar Gençlik ve Spor İl Müdürlüğü – Memur Asistanı</h3>
+        <p class="text-sm mt-2 text-gray-600">2024–2025</p>
+        <p class="mt-2">Büro işleri, dosyalama, resmi yazışmalar ve veri takibi.</p>
+      </div>
+    </div>
   </section>
 
-  <section id="iletisim">
-    <h2>İletişim</h2>
-    <p><i class="fa-solid fa-envelope"></i> ferayarslan38@gmail.com</p>
-    <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/feray-arslan-0866a42a9/" target="_blank">LinkedIn Profilim</a></p>
-    <p><i class="fab fa-github"></i> <a href="https://github.com/ferayarslan" target="_blank">GitHub Hesabım</a></p>
+  <!-- PROJELER (GitHub'dan otomatik) -->
+  <section class="bg-gray-100 py-16" data-aos="zoom-in">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-3xl font-semibold mb-6">Projeler</h2>
+      <div id="projects" class="grid md:grid-cols-3 gap-6">
+        <p class="col-span-3 text-center text-gray-500">Projeler yükleniyor...</p>
+      </div>
+    </div>
   </section>
 
-  <footer>
-    © 2025 Feray Arslan | <a href="https://ferayarslan.github.io/" target="_blank">Kişisel Site</a>
+  <!-- BECERİLER -->
+  <section class="max-w-4xl mx-auto px-6 py-16" data-aos="fade-up">
+    <h2 class="text-3xl font-semibold mb-6">Beceriler</h2>
+    <p class="text-lg">Python, C#, PHP, MySQL, Dart, SQL, Microsoft Office, Photoshop, Kali Linux, VirtualBox, VMware</p>
+  </section>
+
+  <!-- SERTİFİKALAR -->
+  <section class="bg-gray-100 py-16" data-aos="fade-right">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl font-semibold mb-6">Sertifikalar</h2>
+      <ul class="list-disc pl-6 space-y-2 text-lg">
+        <li>BTK Akademi: Beyaz Şapkalı Hacker, Sızma Testi, Zararlı Yazılım Analizi, Web Güvenliği, Ağ Temelleri, Siber Güvenlik Analisti</li>
+        <li>Cisco Networking Academy: Siber Güvenliğe Giriş, Linux Giriş, CCNA Introduction to Networks</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- İLETİŞİM -->
+  <footer class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-12 mt-12" data-aos="fade-up">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <p class="text-2xl font-semibold">İletişim</p>
+      <p class="mt-4">📧 <a href="mailto:ferayarslan38@gmail.com" class="underline">ferayyarslann10@gmail.com</a></p>
+      <p class="mt-2">🌐 <a href="https://ferayarslan.github.io/" target="_blank" class="underline">ferayarslan.github.io</a></p>
+      <p class="mt-2">🐙 <a href="https://github.com/ferayarslan" target="_blank" class="underline">GitHub</a></p>
+    </div>
   </footer>
 
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    // Bölüm animasyonu
-    const sections = document.querySelectorAll("section");
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add("visible");
-        }
-      });
-    }, { threshold: 0.2 });
-    sections.forEach(sec => observer.observe(sec));
+    AOS.init({ duration: 1000, once: true });
   </script>
+
+  <!-- GitHub API'den projeler çekme -->
+  <script>
+    const username = "ferayarslan"; // senin GitHub kullanıcı adın
+    const projectsDiv = document.getElementById("projects");
+
+    fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=6`)
+      .then(res => res.json())
+      .then(data => {
+        projectsDiv.innerHTML = "";
+        data.forEach(repo => {
+          const card = document.createElement("div");
+          card.className = "bg-white p-6 rounded-xl shadow hover:scale-105 transition";
+          card.innerHTML = `
+            <h3 class="font-bold">${repo.name}</h3>
+            <p class="text-sm mt-2">${repo.description || "Açıklama eklenmemiş."}</p>
+            <a href="${repo.html_url}" target="_blank" class="text-indigo-600 text-sm mt-3 inline-block">GitHub'da Gör</a>
+          `;
+          projectsDiv.appendChild(card);
+        });
+      })
+      .catch(err => {
+        projectsDiv.innerHTML = "<p class='col-span-3 text-center text-red-500'>Projeler yüklenemedi.</p>";
+      });
+  </script>
+
 </body>
 </html>
+
