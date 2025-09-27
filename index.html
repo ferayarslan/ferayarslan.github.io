@@ -6,88 +6,45 @@
   <title>Feray Arslan | Portföy</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0d0d0d;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #0d0d0d;
       color: #e0e0e0;
-      display: flex;
+      line-height: 1.6;
     }
-    /* Sol panel */
-    .sidebar {
-      width: 280px;
+    header {
+      text-align: center;
+      padding: 60px 20px;
       background: #1c1c1c;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-shadow: 2px 0 5px rgba(0,0,0,0.5);
-      position: fixed;
-      height: 100%;
     }
-    .sidebar img {
-      width: 120px;
-      border-radius: 50%;
-      margin-bottom: 15px;
-      border: 3px solid #ffcc00;
-    }
-    .sidebar h2 {
-      margin: 10px 0 5px;
-      font-size: 22px;
-    }
-    .sidebar p {
-      color: #ffcc00;
-      margin-bottom: 20px;
-    }
-    .info {
-      width: 100%;
-      margin-bottom: 20px;
-      font-size: 14px;
-    }
-    .info div {
-      margin: 10px 0;
-    }
-    .info i {
-      margin-right: 8px;
+    header h1 {
+      margin: 0;
+      font-size: 36px;
       color: #ffcc00;
     }
-    .social a {
-      color: #e0e0e0;
-      margin: 0 10px;
-      font-size: 20px;
-      transition: 0.3s;
+    header p {
+      margin-top: 10px;
+      font-size: 18px;
     }
-    .social a:hover {
-      color: #ffcc00;
+    nav {
+      text-align: center;
+      margin-top: 20px;
     }
-    .nav {
-      margin-top: 30px;
-      width: 100%;
-    }
-    .nav a {
-      display: block;
-      padding: 10px;
-      color: #e0e0e0;
+    nav a {
+      margin: 0 15px;
       text-decoration: none;
-      border-left: 3px solid transparent;
+      color: #e0e0e0;
+      font-weight: bold;
       transition: 0.3s;
     }
-    .nav a:hover {
-      border-left: 3px solid #ffcc00;
+    nav a:hover {
       color: #ffcc00;
-    }
-    /* Sağ panel */
-    .main {
-      margin-left: 280px;
-      padding: 60px 50px;
-      flex: 1;
     }
     section {
-      min-height: 80vh;
-      margin-bottom: 100px;
+      max-width: 900px;
+      margin: 80px auto;
+      padding: 0 20px;
       opacity: 0;
       transform: translateY(30px);
       transition: all 0.8s ease;
@@ -96,156 +53,96 @@
       opacity: 1;
       transform: translateY(0);
     }
-    h1 {
-      font-size: 32px;
+    h2 {
+      font-size: 28px;
       color: #ffcc00;
-      margin-bottom: 25px;
-      position: relative;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #ffcc00;
       display: inline-block;
+      padding-bottom: 5px;
     }
-    h1::after {
-      content: "";
+    .portfolio a {
       display: block;
-      height: 3px;
-      width: 60px;
-      background: #ffcc00;
-      margin-top: 6px;
-    }
-    .about, .resume, .portfolio, .contact {
-      line-height: 1.6;
-      max-width: 800px;
-    }
-    .whatido {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-    }
-    .card {
       background: #1c1c1c;
-      padding: 25px;
-      border-radius: 12px;
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-8px);
-    }
-    .card i {
-      font-size: 34px;
-      color: #ffcc00;
-      margin-bottom: 12px;
-    }
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-top: 30px;
-    }
-    .portfolio-grid a {
-      display: block;
-      padding: 40px 20px;
-      background: #1c1c1c;
-      border-radius: 12px;
-      text-align: center;
-      font-size: 18px;
-      font-weight: 500;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 15px;
       color: #e0e0e0;
-      transition: transform 0.3s, color 0.3s;
+      text-decoration: none;
+      transition: 0.3s;
     }
-    .portfolio-grid a:hover {
-      transform: translateY(-8px);
+    .portfolio a:hover {
+      background: #2a2a2a;
       color: #ffcc00;
     }
-    .contact {
-      font-size: 16px;
-      margin-top: 20px;
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #1c1c1c;
+      font-size: 14px;
+      margin-top: 50px;
     }
-    .contact div {
-      margin: 15px 0;
-    }
-    .contact i {
-      margin-right: 8px;
+    footer a {
       color: #ffcc00;
+      text-decoration: none;
+      margin: 0 10px;
     }
   </style>
 </head>
 <body>
-  <!-- Sol panel -->
-  <div class="sidebar">
-    <img src="https://avatars.githubusercontent.com/u/174612241?v=4" alt="Feray Arslan">
-    <h2>Feray Arslan</h2>
+  <header>
+    <h1>Feray Arslan</h1>
     <p>Bilgisayar Programcısı</p>
-    <div class="info">
-      <div><i class="fa-solid fa-envelope"></i> ferayarslan38@gmail.com</div>
-      <div><i class="fa-solid fa-calendar"></i> 06.08.2004</div>
-      <div><i class="fa-solid fa-location-dot"></i> Balıkesir/Türkiye</div>
-    </div>
-    <div class="social">
-      <a href="https://github.com/ferayarslan" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/feray-arslan-0866a42a9/" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="https://ferayarslan.github.io/" target="_blank"><i class="fa-solid fa-globe"></i></a>
-    </div>
-    <div class="nav">
+    <nav>
       <a href="#hakkimda">Hakkımda</a>
       <a href="#ozgecmis">Özgeçmiş</a>
-      <a href="#portfoy">Projelerim</a>
+      <a href="#portfoy">Portföy</a>
       <a href="#iletisim">İletişim</a>
-    </div>
-  </div>
+    </nav>
+  </header>
 
-  <!-- Sağ panel -->
-  <div class="main">
-    <section id="hakkimda">
-      <h1>Hakkımda</h1>
-      <div class="about">
-        <p>Ben Feray Arslan. Afyon Kocatepe Üniversitesi Bilgisayar Programcılığı bölümünden mezun oldum. Web geliştirme, yazılım, veri tabanı ve siber güvenlik alanlarında çalışmalar yapıyorum. Birçok BTK Akademi, Siber Vatan ve Cisco Networking Academy sertifikasına sahibim.</p>
-        <p>Hedefim yazılım ve siber güvenlik alanında ilerlemek.</p>
-      </div>
+  <section id="hakkimda">
+    <h2>Hakkımda</h2>
+    <p>Ben Feray Arslan. Afyon Kocatepe Üniversitesi Bilgisayar Programcılığı bölümünden mezun oldum. Web geliştirme, yazılım, veri tabanı ve siber güvenlik alanlarında çalışmalar yapıyorum. Birçok BTK Akademi, Siber Vatan ve Cisco Networking Academy sertifikasına sahibim.</p>
+    <p>Hedefim yazılım ve siber güvenlik alanında ilerlemek.</p>
+  </section>
 
+  <section id="ozgecmis">
+    <h2>Özgeçmiş</h2>
+    <p><strong>Eğitim:</strong> Afyon Kocatepe Üniversitesi, Bilgisayar Programcılığı (2023–2025)</p>
+    <p><strong>Staj:</strong> Altıeylül Belediyesi Bilgi İşlem Departmanı (2024)</p>
+    <p><strong>İş Deneyimi:</strong> Afyonkarahisar Gençlik ve Spor İl Müdürlüğü (Memur Asistanı, 2024–2025)</p>
+    <p><strong>Beceriler:</strong> PHP, MySQL, C#, Python, SQL, Dart, Microsoft Office, Photoshop, Kali Linux</p>
+  </section>
 
-    <section id="ozgecmis">
-      <h1>Özgeçmiş</h1>
-      <div class="resume">
-        <p><strong>Eğitim:</strong> Afyon Kocatepe Üniversitesi, Bilgisayar Programcılığı (2023–2025)</p>
-        <p><strong>Staj:</strong> Altıeylül Belediyesi Bilgi İşlem Departmanı (2024)</p>
-        <p><strong>İş Deneyimi:</strong> Afyonkarahisar Gençlik ve Spor İl Müdürlüğü (Memur Asistanı, 2024–2025)</p>
-        <p><strong>Beceriler:</strong> PHP, MySQL, C#, Python, SQL, Dart, Microsoft Office, Photoshop, Kali Linux</p>
-      </div>
-    </section>
+  <section id="portfoy" class="portfolio">
+    <h2>Portföy</h2>
+    <a href="https://github.com/ferayarslan/fotobulut" target="_blank">📸 Fotobulut Projesi</a>
+    <a href="https://github.com/ferayarslan" target="_blank">💻 Tüm GitHub Projelerim</a>
+  </section>
 
-    <section id="portfoy">
-      <h1>Projelerim</h1>
-      <div class="portfolio-grid">
-        <a href="https://github.com/ferayarslan/fotobulut" target="_blank">📸 Fotobulut Projesi</a>
-        <a href="https://github.com/ferayarslan" target="_blank">💻 Diğer Projeler</a>
-      </div>
-    </section>
+  <section id="iletisim">
+    <h2>İletişim</h2>
+    <p><i class="fa-solid fa-envelope"></i> ferayarslan38@gmail.com</p>
+    <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/feray-arslan-0866a42a9/" target="_blank">LinkedIn Profilim</a></p>
+    <p><i class="fab fa-github"></i> <a href="https://github.com/ferayarslan" target="_blank">GitHub Hesabım</a></p>
+  </section>
 
-    <section id="iletisim">
-      <h1>İletişim</h1>
-      <div class="contact">
-        <div><i class="fa-solid fa-envelope"></i> ferayarslan38@gmail.com</div>
-        <div><i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/feray-arslan-0866a42a9/" target="_blank">LinkedIn</a></div>
-        <div><i class="fab fa-github"></i> <a href="https://github.com/ferayarslan" target="_blank">GitHub</a></div>
-      </div>
-    </section>
-  </div>
+  <footer>
+    © 2025 Feray Arslan | <a href="https://ferayarslan.github.io/" target="_blank">Kişisel Site</a>
+  </footer>
 
   <script>
-    // Bölüm animasyonları
+    // Bölüm animasyonu
     const sections = document.querySelectorAll("section");
-    const options = { threshold: 0.2 };
-    const observer = new IntersectionObserver(function(entries, observer) {
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if(entry.isIntersecting){
           entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
         }
       });
-    }, options);
-    sections.forEach(section => {
-      observer.observe(section);
-    });
+    }, { threshold: 0.2 });
+    sections.forEach(sec => observer.observe(sec));
   </script>
 </body>
 </html>
-
