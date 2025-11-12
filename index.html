@@ -120,7 +120,6 @@
           card.className = "bg-white p-6 rounded-xl shadow hover:scale-105 transition";
           card.innerHTML = `
             <h3 class="font-bold">${repo.name}</h3>
-            <p class="text-sm mt-2">${repo.description || "Açıklama eklenmemiş."}</p>
             <a href="${repo.html_url}" target="_blank" class="text-indigo-600 text-sm mt-3 inline-block">GitHub'da Gör</a>
           `;
           projectsDiv.appendChild(card);
@@ -133,4 +132,5 @@
 
 </body>
 </html>
+
 
