@@ -13,6 +13,7 @@
       --navy-dark: #0e1a31;
       --cream: #f4e6d2;
       --yellow: #f5cb45;
+      --sky: #b8d8e8;
       --coral: #e4573d;
       --paper: #f7efe3;
       --ink: #172747;
@@ -37,24 +38,24 @@
       line-height: 1.65;
     }
 
-    h1, h2, h3, .brand, .nav-link, .btn, .tag {
+    h1, h2, h3, .brand, .nav-link, .cta-btn, .folder-next-btn, .section-tag {
       font-family: "Space Grotesk", sans-serif;
     }
 
-    /* Üst Menü */
+    /* Üst Menü (Bilgisayar Klasörü Sekmeleri) */
     header {
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(20, 36, 66, 0.94);
+      background: rgba(20, 36, 66, 0.96);
       backdrop-filter: blur(8px);
       border-bottom: 1px solid rgba(244, 230, 210, 0.14);
     }
 
     .nav-wrap {
-      max-width: 1160px;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 14px 24px;
+      padding: 18px 24px 14px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -76,27 +77,48 @@
 
     nav {
       display: flex;
-      gap: 8px;
+      gap: 10px;
       flex-wrap: wrap;
+      padding-top: 6px;
     }
 
     .nav-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       text-decoration: none;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      padding: 7px 12px;
-      border-radius: 4px;
+      padding: 8px 13px;
+      border-radius: 0 5px 5px 5px;
       color: var(--navy);
       background: var(--paper);
       border: 2px solid var(--navy);
+      box-shadow: 3px 3px 0 #091326;
       transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    /* Klasör üst kulakçığı */
+    .nav-link::before {
+      content: "";
+      position: absolute;
+      top: -7px;
+      left: -2px;
+      width: 38%;
+      min-width: 24px;
+      height: 7px;
+      background: inherit;
+      border: 2px solid var(--navy);
+      border-bottom: none;
+      border-radius: 4px 4px 0 0;
     }
 
     .nav-link:hover {
       background: var(--yellow);
-      transform: translate(-1px, -1px);
+      transform: translate(-1px, -2px);
     }
 
     /* Hero Alanı */
@@ -109,7 +131,7 @@
     }
 
     .container {
-      max-width: 1160px;
+      max-width: 1180px;
       margin: 0 auto;
     }
 
@@ -136,9 +158,16 @@
       text-transform: uppercase;
     }
 
-    .hero h1 .line-hello { color: var(--cream); display: block; }
-    .hero h1 .line-my { color: var(--cream); display: block; }
-    .hero h1 .line-world { color: var(--yellow); display: block; }
+    .hero h1 .line-hello,
+    .hero h1 .line-my {
+      color: var(--cream);
+      display: block;
+    }
+
+    .hero h1 .line-world {
+      color: var(--yellow);
+      display: block;
+    }
 
     .cta-btn {
       display: inline-flex;
@@ -238,16 +267,25 @@
       box-shadow: 3px 3px 0 var(--navy);
     }
 
-    /* Hakkımda Bölümü */
+    /* Genel Bölüm Yapısı */
     .about-section {
       background: var(--cream);
-      padding: 80px 24px;
+      padding: 80px 24px 64px;
       border-top: var(--border);
       border-bottom: var(--border);
     }
 
+    .sub-section {
+      background: var(--paper);
+      padding: 76px 24px 64px;
+      border-bottom: var(--border);
+    }
+
+    .sub-section:nth-of-type(even) {
+      background: var(--cream);
+    }
+
     .section-tag {
-      font-family: "Space Grotesk", sans-serif;
       font-size: 0.78rem;
       font-weight: 700;
       letter-spacing: 0.14em;
@@ -256,20 +294,22 @@
       margin-bottom: 12px;
     }
 
+    .sub-section h2,
+    .about-section h2 {
+      font-size: clamp(2.1rem, 4.5vw, 3.2rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      margin-bottom: 28px;
+      text-transform: uppercase;
+    }
+
+    /* Hakkımda Bölümü */
     .about-grid {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       gap: 48px;
       align-items: start;
-    }
-
-    .about-section h2 {
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
-      line-height: 0.98;
-      letter-spacing: -0.03em;
-      color: var(--navy);
-      margin-bottom: 24px;
-      text-transform: uppercase;
     }
 
     .about-text p {
@@ -366,86 +406,15 @@
       text-transform: uppercase;
     }
 
-    /* Alt Bölümler (Projeler, Tasarım, Yetenekler, Deneyim, Sertifikalar, İletişim) */
-    .sub-section {
-      background: var(--paper);
-      padding: 72px 24px;
-      border-bottom: var(--border);
-    }
-
-    .sub-section:nth-of-type(even) {
-      background: var(--cream);
-    }
-
-    .sub-section h2 {
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      color: var(--navy);
-      margin-bottom: 24px;
-      text-transform: uppercase;
-    }
-
+    /* Projeler ve Tasarım Kartları */
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
       gap: 24px;
     }
 
+    .project-card,
     .info-card {
-      background: #fff;
-      border: var(--border);
-      box-shadow: var(--shadow);
-      padding: 22px;
-    }
-
-    .info-card h3 {
-      color: var(--navy);
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-    }
-
-    .next-bar {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 32px;
-    }
-
-    .next-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 16px;
-      background: var(--yellow);
-      color: var(--navy);
-      text-decoration: none;
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border: 2px solid var(--navy);
-      box-shadow: 3px 3px 0 var(--navy);
-    }
-
-    footer {
-      background: var(--navy-dark);
-      color: var(--cream);
-      padding: 28px 24px;
-      text-align: center;
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 860px) {
-      .hero-grid,
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .sticker {
-        right: 8px;
-      }
-    }
-
-    .project-card {
       background: #fff;
       border: var(--border);
       box-shadow: var(--shadow);
@@ -457,7 +426,8 @@
       transition: transform 0.15s ease;
     }
 
-    .project-card:hover {
+    .project-card:hover,
+    .info-card:hover {
       transform: translate(-2px, -2px);
     }
 
@@ -468,7 +438,8 @@
       gap: 12px;
     }
 
-    .project-card h3 {
+    .project-card h3,
+    .info-card h3 {
       color: var(--navy);
       font-size: 1.2rem;
       line-height: 1.25;
@@ -552,6 +523,86 @@
       color: var(--ink);
       font-weight: 500;
     }
+
+    /* SKILLS Bölümü (Creative Side & Technical Side) */
+    .skills-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .skill-panel {
+      border: var(--border);
+      box-shadow: var(--shadow);
+      padding: 30px 28px;
+    }
+
+    .skill-panel.creative {
+      background: var(--yellow);
+    }
+
+    .skill-panel.technical {
+      background: var(--sky);
+    }
+
+    .skill-panel-eyebrow {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .skill-panel h3 {
+      font-size: clamp(1.75rem, 3vw, 2.35rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .skill-subbox {
+      background: var(--paper);
+      border: 2px solid var(--navy);
+      padding: 18px 20px;
+      margin-bottom: 16px;
+    }
+
+    .skill-subbox:last-child {
+      margin-bottom: 0;
+    }
+
+    .skill-subbox-title {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-pill {
+      background: #fff;
+      color: var(--navy);
+      border: 1.5px solid var(--navy);
+      padding: 6px 12px;
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* Sertifikalar Pencere Kartları */
     .cert-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -662,33 +713,12 @@
       flex-wrap: wrap;
     }
 
-    .mail-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 13px 20px;
-      background: var(--coral);
-      color: #fff;
-      text-decoration: none;
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 0.85rem;
-      font-weight: 700;
-      border: 2px solid var(--cream);
-      box-shadow: 4px 4px 0 var(--yellow);
-      transition: transform 0.15s ease;
-    }
-
-    .mail-btn:hover {
-      transform: translate(-2px, -2px);
-    }
-
+    .mail-btn,
     .social-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 13px 20px;
-      background: var(--paper);
-      color: var(--navy);
       text-decoration: none;
       font-family: "Space Grotesk", sans-serif;
       font-size: 0.85rem;
@@ -698,8 +728,85 @@
       transition: transform 0.15s ease;
     }
 
+    .mail-btn {
+      background: var(--coral);
+      color: #fff;
+    }
+
+    .social-btn {
+      background: var(--paper);
+      color: var(--navy);
+    }
+
+    .mail-btn:hover,
     .social-btn:hover {
       transform: translate(-2px, -2px);
+    }
+
+    /* Bölüm Sonu Bilgisayar Klasörü Geçiş Butonu (NEXT / ... ->) */
+    .next-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 40px;
+      padding-top: 10px;
+    }
+
+    .folder-next-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      padding: 13px 22px;
+      background: var(--yellow);
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 2.5px solid var(--navy);
+      border-radius: 0 6px 6px 6px;
+      box-shadow: 4px 4px 0 var(--navy);
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    /* Klasör üst kulakçığı */
+    .folder-next-btn::before {
+      content: "";
+      position: absolute;
+      top: -9px;
+      left: -2.5px;
+      width: 44px;
+      height: 9px;
+      background: inherit;
+      border: 2.5px solid var(--navy);
+      border-bottom: none;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .folder-next-btn:hover {
+      background: #ffe074;
+      transform: translate(-2px, -2px);
+    }
+
+    footer {
+      background: var(--navy-dark);
+      color: var(--cream);
+      padding: 28px 24px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid,
+      .about-grid,
+      .skills-split {
+        grid-template-columns: 1fr;
+      }
+
+      .sticker {
+        right: 8px;
+      }
     }
   </style>
 </head>
@@ -726,15 +833,22 @@
       <div class="hero-grid">
         <div>
           <p class="eyebrow">— Welcome to my digital universe</p>
-      
+          <h1>
+            <span class="line-hello">Hello,</span>
+            <span class="line-my">My</span>
+            <span class="line-world">World!</span>
+          </h1>
           <a href="#about" class="cta-btn">Enter my world ↗</a>
         </div>
 
         <div class="avatar-frame">
           <span class="sticker">hello, it's me! ✦</span>
           <div class="avatar-arch">
-            <!-- Kendi avatar görselinizi assets/avatar.png olarak ekleyip src'yi güncelleyin -->
-            <img src="assets/avatar.png" alt="Feray Arslan Piksel Avatar" onerror="this.style.display='none'; this.parentElement.innerHTML='<p style=\'color:#142442;padding:20px;text-align:center;font-weight:700\'>assets/avatar.png<br>görselini buraya ekleyin</p>';" />
+            <img
+              src="./assets/avatar.png"
+              alt="Feray Arslan Piksel Avatar"
+              onerror="if(!this.dataset.t1){this.dataset.t1=1;this.src='./assest/avatar.png';}else if(!this.dataset.t2){this.dataset.t2=1;this.src='https://raw.githubusercontent.com/ferayarslan/ferayarslan.github.io/main/assets/avatar.png';}else if(!this.dataset.t3){this.dataset.t3=1;this.src='https://raw.githubusercontent.com/ferayarslan/ferayarslan.github.io/main/assest/avatar.png';}"
+            />
           </div>
         </div>
       </div>
@@ -772,29 +886,32 @@
               <div class="dots"><span></span><span></span><span></span></div>
             </div>
             <div class="window-body">
-              <img src="assets/avatar.png" alt="Feray Arslan Profil" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'height:100%;display:flex;align-items:center;justify-content:center;color:#142442;font-weight:700;padding:20px;text-align:center\'>assets/avatar.png görseli</div>';" />
+              <img
+                src="./assets/avatar.png"
+                alt="Feray Arslan Profil"
+                onerror="if(!this.dataset.t1){this.dataset.t1=1;this.src='./assest/avatar.png';}else if(!this.dataset.t2){this.dataset.t2=1;this.src='https://raw.githubusercontent.com/ferayarslan/ferayarslan.github.io/main/assets/avatar.png';}else if(!this.dataset.t3){this.dataset.t3=1;this.src='https://raw.githubusercontent.com/ferayarslan/ferayarslan.github.io/main/assest/avatar.png';}"
+              />
             </div>
             <div class="window-status">
               <span>Status: Always Curious</span>
               <span>● Online</span>
             </div>
           </div>
-
-          <div class="next-bar">
-            <a href="#projects" class="next-btn">Next / Projects →</a>
-          </div>
         </div>
+      </div>
+
+      <div class="next-bar">
+        <a href="#projects" class="folder-next-btn">NEXT / PROJECTS <span>→</span></a>
       </div>
     </div>
   </section>
 
-<section id="projects" class="sub-section">
+  <section id="projects" class="sub-section">
     <div class="container">
       <p class="section-tag">— 02 / Projects</p>
       <h2>Projects</h2>
       <div class="cards-grid">
 
-        <!-- 1. FotoBulut -->
         <article class="project-card">
           <div>
             <div class="project-header">
@@ -822,7 +939,6 @@
           </div>
         </article>
 
-        <!-- 2. Siber Güvenlik Blogu -->
         <article class="project-card">
           <div>
             <div class="project-header">
@@ -849,7 +965,6 @@
           </div>
         </article>
 
-        <!-- 3. C# Ajanda Projesi -->
         <article class="project-card">
           <div>
             <div class="project-header">
@@ -875,7 +990,6 @@
           </div>
         </article>
 
-        <!-- 4. Python Mağaza Projesi -->
         <article class="project-card">
           <div>
             <div class="project-header">
@@ -901,22 +1015,92 @@
         </article>
 
       </div>
+
+      <div class="next-bar">
+        <a href="#design" class="folder-next-btn">NEXT / DESIGN <span>→</span></a>
+      </div>
+    </div>
+  </section>
+
+
+
+      <div class="next-bar">
+        <a href="#skills" class="folder-next-btn">NEXT / SKILLS <span>→</span></a>
+      </div>
     </div>
   </section>
 
   <section id="skills" class="sub-section">
     <div class="container">
       <p class="section-tag">— 04 / Skills</p>
-      <h2>Skills &amp; Tools</h2>
-      <div class="cards-grid">
-        <article class="info-card">
-          <h3>Web Geliştirme</h3>
-          <p>HTML, CSS, Bootstrap, PHP, MySQL, WordPress</p>
-        </article>
-        <article class="info-card">
-          <h3>Tasarım &amp; Sistem</h3>
-          <p>Adobe Photoshop, Canva, Ağ &amp; Siber Güvenlik Temelleri</p>
-        </article>
+      <h2>Skills &amp; Arsenal</h2>
+
+      <div class="skills-split">
+        <!-- Sol Panel: Creative Side -->
+        <div class="skill-panel creative">
+          <div class="skill-panel-eyebrow">01 / IMAGINE &amp; SHAPE</div>
+          <h3>CREATIVE SIDE ✳</h3>
+
+          <div class="skill-subbox">
+            <div class="skill-subbox-title">DESIGN</div>
+            <div class="skill-pills">
+              <span class="skill-pill">Adobe Photoshop</span>
+              <span class="skill-pill">Canva</span>
+              <span class="skill-pill">Figma</span>
+            </div>
+          </div>
+
+          <div class="skill-subbox">
+            <div class="skill-subbox-title">OFFICE</div>
+            <div class="skill-pills">
+              <span class="skill-pill">Microsoft Word</span>
+              <span class="skill-pill">Excel</span>
+              <span class="skill-pill">PowerPoint</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sağ Panel: Technical Side -->
+        <div class="skill-panel technical">
+          <div class="skill-panel-eyebrow">02 / BUILD &amp; EXPLORE</div>
+          <h3>TECHNICAL SIDE ↗</h3>
+
+          <div class="skill-subbox">
+            <div class="skill-subbox-title">WEB</div>
+            <div class="skill-pills">
+              <span class="skill-pill">HTML</span>
+              <span class="skill-pill">CSS</span>
+              <span class="skill-pill">Bootstrap</span>
+              <span class="skill-pill">PHP</span>
+              <span class="skill-pill">MySQL</span>
+              <span class="skill-pill">WordPress</span>
+            </div>
+          </div>
+
+          <div class="skill-subbox">
+            <div class="skill-subbox-title">PROGRAMMING</div>
+            <div class="skill-pills">
+              <span class="skill-pill">Python</span>
+              <span class="skill-pill">C#</span>
+              <span class="skill-pill">Dart</span>
+              <span class="skill-pill">SQL</span>
+            </div>
+          </div>
+
+          <div class="skill-subbox">
+            <div class="skill-subbox-title">CYBERSECURITY &amp; SYSTEMS</div>
+            <div class="skill-pills">
+              <span class="skill-pill">Kali Linux</span>
+              <span class="skill-pill">VirtualBox</span>
+              <span class="skill-pill">VMware</span>
+              <span class="skill-pill">Virtual machine installation and use</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="next-bar">
+        <a href="#experience" class="folder-next-btn">NEXT / EXPERIENCE <span>→</span></a>
       </div>
     </div>
   </section>
@@ -927,20 +1111,25 @@
       <h2>Experience</h2>
       <div class="cards-grid">
         <article class="info-card">
-          <h3>Bilgi İşlem Stajı — Altıeylül Belediyesi</h3>
-          <p>Bilgi işlem süreçleri, sistem/ağ mantığı ve kurumsal BT işleyişi üzerine deneyim.</p>
+          <div>
+            <h3>Bilgi İşlem Stajı — Altıeylül Belediyesi</h3>
+            <p style="margin-top: 8px;">Bilgi işlem süreçleri, sistem/ağ mantığı, donanım-yazılım desteği ve kurumsal BT işleyişi üzerine staj deneyimi.</p>
+          </div>
         </article>
+      </div>
+
+      <div class="next-bar">
+        <a href="#certificates" class="folder-next-btn">NEXT / CERTIFICATES <span>→</span></a>
       </div>
     </div>
   </section>
 
-<section id="certificates" class="sub-section">
+  <section id="certificates" class="sub-section">
     <div class="container">
       <p class="section-tag">— 06 / Learning Archive</p>
       <h2>Certificates</h2>
 
       <div class="cert-grid">
-        <!-- Sol Pencere: Siber Vatan / BTK Akademi -->
         <article class="cert-window">
           <div class="cert-window-bar">
             <span>siber_vatan_btk.cert</span>
@@ -963,7 +1152,6 @@
           </div>
         </article>
 
-        <!-- Sağ Pencere: Cisco Networking Academy -->
         <article class="cert-window">
           <div class="cert-window-bar">
             <span>cisco_networking.cert</span>
@@ -978,6 +1166,10 @@
             </ul>
           </div>
         </article>
+      </div>
+
+      <div class="next-bar">
+        <a href="#contact" class="folder-next-btn">NEXT / CONTACT <span>→</span></a>
       </div>
     </div>
   </section>
@@ -998,8 +1190,13 @@
           <a href="https://github.com/ferayarslan" target="_blank" rel="noopener" class="social-btn">GitHub ↗</a>
         </div>
       </div>
+
+      <div class="next-bar">
+        <a href="#home" class="folder-next-btn">BACK TO TOP <span>↑</span></a>
+      </div>
     </div>
   </section>
+
   <footer>
     <p>© 2026 Feray Arslan — GitHub Pages Portfolio</p>
   </footer>
