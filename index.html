@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Feray Arslan — Hello, My World!</title>
+<style>
+:root{--navy:#172747;--navy2:#243a60;--cream:#f5ebd7;--paper:#fffdf8;--red:#d94f45;--yellow:#f3cb69;--blue:#a9cbe7;--ink:#1a2945;--line:#a79a83;--shadow:5px 5px 0 rgba(23,39,71,.24)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--navy);color:var(--cream);font-family:Verdana,Arial,sans-serif;overflow-x:hidden}
+a,button{color:inherit}button{font:inherit;cursor:pointer}
+.topbar{position:sticky;top:0;z-index:50;background:var(--cream);color:var(--navy);border-bottom:3px solid var(--navy);padding:9px 4vw;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{font-weight:900;letter-spacing:.06em;white-space:nowrap}.folder-nav{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.folder{border:1px solid var(--navy);background:#e9d9b8;color:var(--navy);padding:8px 10px 7px;border-radius:5px 5px 2px 2px;position:relative;font-size:10px;font-weight:bold;letter-spacing:.06em;transition:.22s;box-shadow:2px 2px 0 #9b8c73}
+.folder:before{content:"";position:absolute;top:-5px;left:5px;width:24px;height:5px;background:inherit;border:1px solid var(--navy);border-bottom:0;border-radius:3px 3px 0 0}
+.folder:hover,.folder.active{transform:translateY(-4px);background:var(--yellow);box-shadow:3px 4px 0 var(--navy)}
+main{max-width:1220px;margin:auto;padding:26px 24px 70px}
+.page{display:none;animation:pageIn .42s ease both}.page.active{display:block}
+@keyframes pageIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.gridbg{background-color:var(--cream);background-image:linear-gradient(rgba(23,39,71,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(23,39,71,.08) 1px,transparent 1px);background-size:24px 24px}
+.window{background:var(--paper);color:var(--ink);border:2px solid var(--navy);box-shadow:var(--shadow);min-width:0}
+.titlebar{background:var(--navy);color:var(--cream);padding:7px 10px;display:flex;justify-content:space-between;align-items:center;font-size:10px;font-weight:bold;letter-spacing:.08em}
+.controls{display:flex;gap:4px}.controls i{display:block;width:11px;height:11px;border:1px solid var(--cream);font-style:normal;line-height:9px;text-align:center;font-size:9px}
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:stretch}
+.hero-left{padding:clamp(22px,4vw,52px);position:relative;min-height:450px;display:flex;flex-direction:column;justify-content:center}
+.eyebrow{font-size:11px;letter-spacing:.18em;font-weight:bold;color:var(--red)}
+h1{font-size:clamp(40px,7vw,86px);line-height:.93;margin:15px 0;color:var(--navy);letter-spacing:-.07em}
+h1 span{color:var(--red)}.subtitle{font-size:clamp(15px,2vw,21px);line-height:1.5;max-width:490px}
+.terminal{background:var(--navy);color:#d8e5f7;padding:15px;margin-top:22px;font:13px/1.8 monospace;border:2px solid #7489aa}
+.cursor{display:inline-block;width:8px;height:16px;background:var(--yellow);vertical-align:middle;animation:blink .8s steps(2) infinite}@keyframes blink{50%{opacity:0}}
+.hero-right{display:flex;flex-direction:column;gap:14px}
+.avatarbox{min-height:335px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;background:var(--cream)}
+.avatarbox img{width:min(85%,350px);max-height:390px;object-fit:contain;image-rendering:pixelated;animation:float 4s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-8px)}}
+.avatarbox:after{content:"PLAYER 01";position:absolute;bottom:10px;right:10px;font:10px monospace;background:var(--navy);color:var(--cream);padding:5px}
+.status{padding:13px;font:12px monospace;display:flex;justify-content:space-between;gap:12px}.status b{color:var(--red)}
+.section-heading{display:flex;align-items:end;justify-content:space-between;gap:15px;margin:8px 0 22px}.section-heading h2{font-size:clamp(30px,5vw,56px);margin:0;letter-spacing:-.05em;color:var(--cream)}.section-heading small{font:11px monospace;opacity:.75}
+.content-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.card{padding:20px}.card h3{margin:0 0 10px;font-size:20px;color:var(--navy)}.card p{line-height:1.7;font-size:14px;margin:8px 0}.tag{display:inline-block;background:var(--cream);border:1px solid #b6a88d;padding:5px 8px;margin:4px 4px 0 0;font:10px monospace;color:var(--navy)}
+.bigquote{font-size:clamp(23px,4vw,42px);line-height:1.2;color:var(--navy);font-weight:bold}
+.timeline{border-left:3px solid var(--red);padding-left:20px;display:grid;gap:20px}.timeline-item{position:relative}.timeline-item:before{content:"";position:absolute;left:-28px;top:5px;width:12px;height:12px;border:2px solid var(--navy);background:var(--yellow)}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.project{cursor:pointer;transition:transform .2s}.project:hover{transform:translateY(-5px)}.project-preview{height:145px;background:var(--cream);color:var(--navy);display:flex;align-items:center;justify-content:center;font-size:42px;border-bottom:2px solid var(--navy)}.project-body{padding:16px}.project-body h3{margin:0 0 6px}.project-body p{font-size:13px;line-height:1.6}
+.detail{display:none;margin-top:14px;padding:14px;background:#f5ebd7;border:1px dashed var(--navy);font-size:13px;line-height:1.65}.project.open .detail{display:block}
+.skillgroup{padding:18px}.skillgroup h3{font-size:15px;text-transform:uppercase;letter-spacing:.08em}.skillchips{display:flex;flex-wrap:wrap;gap:7px}.skillchips span{padding:7px 9px;background:var(--cream);border:1px solid var(--line);font-size:12px;color:var(--navy)}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.gallery-slot{aspect-ratio:1.1;background:var(--cream);color:var(--navy);border:2px dashed #9e927e;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10px;font-size:12px;transition:.2s}.gallery-slot:hover{background:var(--yellow);transform:rotate(-1deg)}
+.contactbox{padding:30px;text-align:center}.contactbox h2{font-size:clamp(34px,6vw,64px);margin:0 0 12px;color:var(--navy)}.contactbox a{color:var(--red);font-weight:bold}.btn{display:inline-block;background:var(--red);color:white;border:2px solid var(--navy);box-shadow:3px 3px 0 var(--navy);padding:12px 18px;text-decoration:none;font-weight:bold;font-size:12px;margin-top:12px;transition:.15s}.btn:hover{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--navy)}
+.footer{padding:20px;text-align:center;font:11px monospace;opacity:.7}
+.mobile-menu{display:none}
+@media(max-width:800px){.topbar{align-items:flex-start;flex-direction:column}.folder-nav{justify-content:flex-start}.hero{grid-template-columns:1fr}.hero-left{min-height:350px}.avatarbox{min-height:280px}.content-grid,.projects{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}main{padding:18px 12px 45px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="brand">▣ FERAY ARSLAN <small style="font-weight:400">/ PORTFOLIO</small></div>
+<nav class="folder-nav" aria-label="Portfolio navigation">
+<button class="folder active" data-page="home">HOME</button><button class="folder" data-page="about">ABOUT</button><button class="folder" data-page="projects">PROJECTS</button><button class="folder" data-page="design">DESIGN</button><button class="folder" data-page="skills">SKILLS</button><button class="folder" data-page="experience">EXPERIENCE</button><button class="folder" data-page="certificates">CERTIFICATES</button><button class="folder" data-page="contact">CONTACT</button>
+</nav>
+</header>
+<main>
+<section class="page active" id="home">
+<div class="hero">
+<div class="window hero-left gridbg"><div class="titlebar"><span>HELLO_WORLD.EXE</span><span class="controls"><i>_</i><i>□</i><i>×</i></span></div>
+<div class="eyebrow">WELCOME TO MY CREATIVE UNIVERSE</div><h1>HELLO,<br><span>MY WORLD!</span></h1>
+<p class="subtitle">Biraz kod, biraz tasarım; merakla şekillenen kocaman bir dünya.</p>
+<div class="terminal"><div>visitor@feray:~$ <span id="typed"></span><span class="cursor"></span></div><div style="color:#f3cb69">→ Creativity mode: ON</div><div>→ Loading projects... <b>DONE</b></div></div>
+<button class="btn" onclick="go('projects')">ENTER MY WORLD →</button>
+</div>
+<div class="hero-right"><div class="window avatarbox gridbg"><img src="assets/avatar.png" alt="Feray pixel avatar" onerror="this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<div style=&quot;font-size:100px&quot;>👩🏻‍💻</div>')"></div><div class="window status"><span>USER: <b>FERAY</b></span><span>STATUS: <b>CREATIVE MODE</b> ●</span></div><div class="window status"><span>Developer & Graphic Design Explorer</span><span>v.2026</span></div></div>
+</div>
+</section>
+<section class="page" id="about"><div class="section-heading"><h2>WHO'S BEHIND<br>THE SCREEN?</h2><small>USER_PROFILE.DAT</small></div><div class="content-grid">
+<div class="window card gridbg"><h3>ABOUT ME</h3><p>Bilgisayar Programcılığı mezunuyum. Web ve yazılım geliştirme alanında projeler üretirken grafik tasarım ve arayüz tasarımına olan ilgimi de geliştirmeye devam ediyorum.</p><p>Teknik altyapıyı kullanıcı dostu ve görsel açıdan güçlü tasarımlarla birleştirmeyi seviyorum. Yeni teknolojiler öğrenmeye açık, farklı alanlarda deneyim kazanmayı seven ve yaratıcı çözümler üretmeye çalışan bir geliştiriciyim.</p></div>
+<div class="window card"><div class="bigquote">“Kodla düşünür,<br>tasarımla anlatırım.”</div><p><b>Education</b><br>Afyon Kocatepe Üniversitesi<br>Bilgisayar Programcılığı · 2023–2025</p><span class="tag">Human.exe loaded</span><span class="tag">Creative mode ON</span></div></div></section>
+<section class="page" id="projects"><div class="section-heading"><h2>PROJECTS.EXE</h2><small>CLICK A PROJECT TO OPEN ITS FILE</small></div><div class="projects">
+<div class="window project" onclick="toggleProject(this)"><div class="project-preview">🏙️</div><div class="project-body"><h3>City in Pixels</h3><span class="tag">HTML</span><span class="tag">CSS</span><p>Şehir tanıtım sitesi</p><div class="detail"><b>Project overview</b><p>Bir şehri tanıtmaya yönelik bilgilendirici web sitesi hazırladım. Şehirle ilgili içeriklerin web arayüzünde düzenli ve kullanıcı dostu biçimde sunulmasına odaklandım.</p><b>Focus:</b> Sayfa yapısı, içerik düzeni, temel HTML/CSS ile arayüz geliştirme.</div></div></div>
+<div class="window project" onclick="toggleProject(this)"><div class="project-preview">🌱</div><div class="project-body"><h3>Awareness Online</h3><span class="tag">Bootstrap</span><p>Bağımlılıkla mücadele bilgilendirme sitesi</p><div class="detail"><b>Project overview</b><p>Bağımlılık türleri hakkında bilgilendirme sunan, Bootstrap altyapısıyla geliştirilmiş responsive bir web sitesi. İçeriğin farklı ekran boyutlarında düzenli görüntülenmesini hedefledim.</p><b>Focus:</b> Responsive tasarım, içerik hiyerarşisi ve Bootstrap bileşenleri.</div></div></div>
+<div class="window project" onclick="toggleProject(this)"><div class="project-preview">🛡️</div><div class="project-body"><h3>Cyber Blog</h3><span class="tag">PHP</span><span class="tag">Bootstrap</span><p>Siber güvenlik blog ve yönetim sistemi</p><div class="detail"><b>Project overview</b><p>Kullanıcı kayıt ve giriş işlemleri, admin paneli ve blog içerik yönetimi özelliklerine sahip sistem geliştirdim. Gönderi ekleme, düzenleme, silme ve yazı görüntüleme işlevleri yer alıyor.</p><b>Features:</b> Kullanıcı girişi, yönetim paneli, içerik CRUD işlemleri, blog sayfası.</div></div></div>
+<div class="window project" onclick="toggleProject(this)"><div class="project-preview">📷</div><div class="project-body"><h3>Memories in the Cloud</h3><span class="tag">PHP</span><span class="tag">MySQL</span><p>QR kod ile fotoğraf paylaşım web uygulaması</p><div class="detail"><b>Project overview</b><p>Çiftlerin fotoğrafları görüntüleyebildiği ve misafirlerin QR kod aracılığıyla fotoğraf yükleyebildiği fotoğraf paylaşım sistemi. Fotoğraf yönetimi için admin paneli de bulunuyor.</p><b>Features:</b> QR üzerinden yükleme senaryosu, fotoğraf galerisi, çift görüntüleme alanı, yönetim paneli.</div></div></div>
+<div class="window project" onclick="toggleProject(this)"><div class="project-preview">🏅</div><div class="project-body"><h3>Sports Registration</h3><span class="tag">C#</span><p>Sporcu kayıt masaüstü uygulaması</p><div class="detail"><p>Staj döneminde geliştirilen sporcuların bilgilerini kaydetme ve yönetme işlemlerini sağlayan masaüstü uygulaması.</p></div></div></div>
+<div class="window project" onclick="toggleProject(this)"><div class="project-preview">📚</div><div class="project-body"><h3>Book Quotes</h3><span class="tag">WordPress</span><p>Kitap alıntıları paylaşım sitesi</p><div class="detail"><p>Kitap alıntılarının paylaşıldığı, satış sayfalarına yönlendirme yapılabilen ve yorum özelliği bulunan WordPress tabanlı web sitesi.</p></div></div></div>
+</div></section>
+<section class="page" id="design"><div class="section-heading"><h2>DESIGN STUDIO</h2><small>PIXELS, COLORS & IDEAS</small></div><div class="window card"><p>Grafik tasarım çalışmalarını burada gerçek görsellerinle sergile. Her kutu, kendi tasarım dosyanı ekleyebileceğin bir galeri alanıdır.</p><div class="gallery"><div class="gallery-slot">✦<b>LOGO / BRANDING</b><small>Görselini ekle</small></div><div class="gallery-slot">◈<b>SOCIAL MEDIA</b><small>Post & story</small></div><div class="gallery-slot">▧<b>BANNERS</b><small>Web / duyuru</small></div><div class="gallery-slot">✹<b>VISUAL IDENTITY</b><small>Kimlik tasarımları</small></div><div class="gallery-slot">✷<b>POSTERS</b><small>Poster & afiş</small></div><div class="gallery-slot">✳<b>EXPERIMENTS</b><small>Deneysel işler</small></div></div></div></section>
+<section class="page" id="skills"><div class="section-heading"><h2>MY TOOLBOX</h2><small>INSTALLED APPLICATIONS</small></div><div class="content-grid">
+<div class="window skillgroup"><h3>CREATIVE TOOLS</h3><div class="skillchips"><span>Photoshop</span><span>Canva</span><span>Figma</span></div></div>
+<div class="window skillgroup"><h3>WEB DEVELOPMENT</h3><div class="skillchips"><span>HTML</span><span>CSS</span><span>Bootstrap</span><span>PHP</span><span>MySQL</span><span>WordPress</span></div></div>
+<div class="window skillgroup"><h3>PROGRAMMING</h3><div class="skillchips"><span>Python</span><span>C#</span><span>Dart</span><span>SQL</span></div></div>
+<div class="window skillgroup"><h3>SYSTEMS & CYBER</h3><div class="skillchips"><span>Kali Linux</span><span>VirtualBox</span><span>VMware</span><span>Virtual Machines</span></div></div>
+<div class="window skillgroup"><h3>OFFICE</h3><div class="skillchips"><span>Word</span><span>Excel</span><span>PowerPoint</span></div></div>
+</div></section>
+<section class="page" id="experience"><div class="section-heading"><h2>EXPERIENCE.LOG</h2><small>PREVIOUS MISSIONS</small></div><div class="window card"><div class="timeline">
+<div class="timeline-item"><h3>Altıeylül Belediyesi — Bilgi İşlem Stajyeri</h3><span class="tag">2024</span><p>Bilgi işlem altyapısı ve kullanıcı destek sistemleri üzerine gözlem ve destek sağladım. Temel yazılım, donanım ve ağ sistemleri hakkında pratik deneyim kazandım.</p></div>
+<div class="timeline-item"><h3>Afyonkarahisar Gençlik ve Spor İl Müdürlüğü — Memur Asistanı</h3><span class="tag">2024–2025</span><p>Büro işlerinde görev aldım, dosyalama ve veri takibi süreçlerini yürüttüm. Resmî yazışma süreçlerine destek sağladım.</p></div>
+</div></div></section>
+<section class="page" id="certificates"><div class="section-heading"><h2>ACHIEVEMENT<br>UNLOCKED</h2><small>TRAINING & BADGES</small></div><div class="content-grid">
+<div class="window skillgroup"><h3>SİBER VATAN / BTK AKADEMİ</h3><div class="skillchips"><span>Beyaz Şapkalı Hacker ve Temel Linux · 2023</span><span>Sızma Testi · 2024</span><span>Zararlı Yazılım ve Tersine Mühendislik · 2024</span><span>Web Güvenliği · 2024</span><span>Siber Vatan Bootcamp · 2024</span><span>Ağ Temelleri · 2024</span><span>Temel Ağ Teknolojileri · 2024</span><span>İleri Ağ Teknolojileri · 2025</span><span>Dart Programlama Dili · 2025</span><span>Siber Güvenlik Analisti · 2025</span></div></div>
+<div class="window skillgroup"><h3>CISCO NETWORKING ACADEMY</h3><div class="skillchips"><span>Introduction to Cybersecurity · 2025</span><span>Linux Essentials · 2025</span><span>CCNA: Introduction to Networks · 2025</span></div></div></div></section>
+<section class="page" id="contact"><div class="window contactbox gridbg"><div class="eyebrow">NEW COLLABORATION DETECTED</div><h2>LET'S CONNECT!</h2><p>Bir fikrin mi var? Birlikte üretelim, tasarlayalım ve geliştirelim.</p><p><a href="mailto:ferayarslan38@gmail.com">ferayarslan38@gmail.com</a></p><p><a href="https://ferayarslan.github.io" target="_blank" rel="noopener">ferayarslan.github.io</a></p><a class="btn" href="mailto:ferayarslan38@gmail.com">SEND A MESSAGE ↗</a></div></section>
+<div class="footer">© FERAY ARSLAN · THANKS FOR EXPLORING MY WORLD · <span id="clock"></span></div>
+</main>
+<script>
+function go(page){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===page));document.querySelectorAll('.folder').forEach(b=>b.classList.toggle('active',b.dataset.page===page));window.scrollTo({top:0,behavior:'smooth'});}
+document.querySelectorAll('.folder').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+function toggleProject(el){el.classList.toggle('open')}
+const phrase='print("Hello, my world!")';let i=0; 
+// typing effect (defensive fallback)
+const typed=document.getElementById('typed');let j=0;function tick(){typed.textContent=phrase.slice(0,j);j++;if(j<=phrase.length)setTimeout(tick,80)}tick();
+function updateClock(){document.getElementById('clock').textContent=new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}updateClock();setInterval(updateClock,60000);
+</script>
+</body></html>
